@@ -5,6 +5,7 @@ import {
   StatusBar,
   StyleSheet,
   useColorScheme,
+  View,
 } from 'react-native';
 
 import {RouteProp} from '@react-navigation/native';
@@ -12,6 +13,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {RootStacksParams, RootStacksProp} from '..';
 import Basic from './components/Basic';
 import {dip} from '@src/constants/u';
+import Experience from './components/Experience';
 
 interface MyProps {
   navigation?: RootStacksProp;
@@ -34,7 +36,11 @@ const HelloWorld: React.FC<MyProps> = props => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.view}>
-        <Basic />
+        {[<Basic />, <Experience />].map((it, i) => (
+          <View style={{marginBottom: dip(24)}} key={i}>
+            {it}
+          </View>
+        ))}
       </ScrollView>
     </SafeAreaView>
   );
@@ -42,6 +48,7 @@ const HelloWorld: React.FC<MyProps> = props => {
 
 const styles = StyleSheet.create({
   view: {
+    paddingVertical: dip(48),
     paddingHorizontal: dip(64),
   },
 });

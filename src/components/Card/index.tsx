@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     borderRadius: dip(12),
     backgroundColor: '#fff',
     paddingHorizontal: dip(12),
-    paddingVertical: dip(8),
+    paddingVertical: dip(12),
   },
 });
 
