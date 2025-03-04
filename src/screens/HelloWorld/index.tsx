@@ -1,6 +1,4 @@
-import {RouteProp} from '@react-navigation/native';
-import {RootStacksParams, RootStacksProp} from '@src/screens';
-import React, {useEffect} from 'react';
+import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -19,11 +17,14 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { RootStacksParams, RootStacksProp } from '..';
+import { RouteProp } from '@react-navigation/native';
 
 interface MyProps {
   navigation?: RootStacksProp;
-  route?: RouteProp<RootStacksParams, 'App'>;
+  route?: RouteProp<RootStacksParams, 'HelloWorld'>;
 }
+
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -55,19 +56,13 @@ function Section({children, title}: SectionProps): React.JSX.Element {
   );
 }
 
-const App: React.FC<MyProps> = props => {
+const HelloWorld: React.FC<MyProps> = props => {
   const isDarkMode = useColorScheme() === 'dark';
-  const {navigation, route} = props;
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.navigate('HelloWorld');
-    }, 3000);
-    return function () {};
-  }, []);
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -121,4 +116,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default HelloWorld;
