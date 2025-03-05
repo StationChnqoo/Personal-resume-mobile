@@ -15,6 +15,7 @@ import Basic from './components/Basic';
 import {dip} from '@src/constants/u';
 import Experience from './components/Experience';
 import Company from './components/Company';
+import Conclusion from './components/Conclusion';
 
 interface MyProps {
   navigation?: RootStacksProp;
@@ -22,23 +23,19 @@ interface MyProps {
 }
 
 const HelloWorld: React.FC<MyProps> = props => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
     <View style={{flex: 1}}>
       <View style={{height: dip(48)}} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.view}>
-        {[<Basic />, <Experience />, <Company />].map((it, i) => (
-          <View style={{marginBottom: dip(24)}} key={i}>
-            {it}
-          </View>
-        ))}
+        {[<Basic />, <Experience />, <Company />, <Conclusion />].map(
+          (it, i) => (
+            <View style={{marginBottom: dip(24)}} key={i}>
+              {it}
+            </View>
+          ),
+        )}
       </ScrollView>
       <View style={{height: dip(48)}} />
     </View>

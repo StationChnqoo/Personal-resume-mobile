@@ -24,52 +24,10 @@ yarn
 ### 清除缓存
 
 ```sh
-npx react-native clean
-```
-
-### 分页
-
-采用`ChatGPT`的建议，避免混淆，
-
-```java
-private List<T> records; // 当前页的数据
-private int currentPage; // 当前页数
-private int totalPages;  // 总页数
-private int totalItems;  // 总数据条数
-private boolean hasNextPage; // 是否有下一页
-```
-
-### PicGo
-
-> 将 API key 保存在安全位置，因为它只显示一次。
-
-```sh
-chv_nqs2_c99fe5b01f6ca04b4e4a9191b3f79347a89962419696e52358178098c580ef3302005f91e9eceec0428f3a956b278e10f1c391ac9f52694137d5a034694c58b6
-```
-
-### 权限
-
-https://developer.android.com/about/versions/14/changes/partial-photo-video-access?hl=zh-cn
-
-## 打包
-
-### Android
-
-```bash
-ENVFILE=.env.dev ./gradlew assembleDebug --refresh-dependencies
-ENVFILE=.env.alpha ./gradlew assembleRelease
-ENVFILE=.env.beta ./gradlew assembleRelease
-ENVFILE=.env.rc ./gradlew assembleRelease
-ENVFILE=.env.stable ./gradlew assembleRelease
-```
-
-### 清除缓存
-
-```sh
 cd android && ./gradlew clean && ./gradlew --stop && rm -r ~/.gradle/caches
 ```
 
-## A4
+### A4
 
 A4 纸的标准尺寸是 **210mm × 297mm（8.27 英寸 × 11.69 英寸）**，不同分辨率下的像素数如下：
 
@@ -92,3 +50,26 @@ A4 纸的标准尺寸是 **210mm × 297mm（8.27 英寸 × 11.69 英寸）**，�
 - **600+ dpi** → 适用于专业印刷（如杂志、书籍封面）。
 
 如果你是 **做海报、印刷品**，建议使用 **300 dpi 或更高**，避免打印模糊。
+
+### Pdf 生成
+
+孙宇鹏-7年经验-前端开发工程师.pdf
+
+```sh
+adb shell screencap -p > S*.png
+```
+
+```sh
+convert -density 300 input.png output.pdf
+```
+
+默认情况下，`ImageMagick` 可能会使用 72 DPI，如果你的图片是高清的，但转换后模糊，增加 `-density` 可以让 PDF 里的图片更清晰。
+
+常见 DPI 设置：
+
+```sh
+72（默认，适合屏幕查看）
+150（中等清晰度）
+300（打印质量，高清）
+600（专业打印质量）
+```

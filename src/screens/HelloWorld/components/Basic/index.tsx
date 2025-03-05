@@ -63,7 +63,7 @@ const Basic: React.FC<MyProps> = props => {
                     <Flex horizontal>
                       <Image
                         source={it.value}
-                        style={{height: dip(16), width: dip(16)}}
+                        style={{height: dip(18), width: dip(18)}}
                       />
                       <View style={{width: dip(5)}} />
                       <Text style={{color: '#333', fontSize: dip(14)}}>
