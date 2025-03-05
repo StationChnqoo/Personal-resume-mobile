@@ -15,7 +15,7 @@ const datas = [
       '优化各种应用场景的 Query 查询，loading、缓存、重试、防抖、分页、无限加载等；',
   },
   {label: '熟练封装复杂组件视图，例如瀑布流和轮播等；'},
-
+  {label: '对WebView嵌入图表ChartJS、eCharts，视频播放Plyr、DPlayer等有一定经验；'},
   {
     label: '熟悉消息推送、CodePush 代码热更新、Android 8、12~15的权限适配等；',
   },

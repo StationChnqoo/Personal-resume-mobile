@@ -14,6 +14,7 @@ import {RootStacksParams, RootStacksProp} from '..';
 import Basic from './components/Basic';
 import {dip} from '@src/constants/u';
 import Experience from './components/Experience';
+import Company from './components/Company';
 
 interface MyProps {
   navigation?: RootStacksProp;
@@ -28,27 +29,26 @@ const HelloWorld: React.FC<MyProps> = props => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+    <View style={{flex: 1}}>
+      <View style={{height: dip(48)}} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.view}>
-        {[<Basic />, <Experience />].map((it, i) => (
+        {[<Basic />, <Experience />, <Company />].map((it, i) => (
           <View style={{marginBottom: dip(24)}} key={i}>
             {it}
           </View>
         ))}
       </ScrollView>
-    </SafeAreaView>
+      <View style={{height: dip(48)}} />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   view: {
-    paddingVertical: dip(48),
+    // paddingVertical: dip(48),
+    flex: 1,
     paddingHorizontal: dip(64),
   },
 });

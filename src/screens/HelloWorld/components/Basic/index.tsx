@@ -39,7 +39,7 @@ const Basic: React.FC<MyProps> = props => {
       <View>
         <Flex horizontal>
           <Image
-            source={require('../../assets/i.jpg')}
+            source={images.i}
             style={{height: dip(72), width: dip(72)}}
           />
           <Flex style={{flex: 1, height: dip(72)}} justify="space-between">
@@ -63,7 +63,7 @@ const Basic: React.FC<MyProps> = props => {
                     <Flex horizontal>
                       <Image
                         source={it.value}
-                        style={{height: dip(20), width: dip(20)}}
+                        style={{height: dip(18), width: dip(18)}}
                       />
                       <View style={{width: dip(5)}} />
                       <Text style={{color: '#333', fontSize: dip(16)}}>
