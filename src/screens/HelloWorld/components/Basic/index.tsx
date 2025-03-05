@@ -1,4 +1,4 @@
-import {Card, Flex} from '@src/components';
+import {Card, Flex, TextView} from '@src/components';
 import {images} from '@src/constants/c';
 import {dip} from '@src/constants/u';
 import {Image, StyleSheet, Text, View} from 'react-native';
@@ -49,13 +49,13 @@ const Basic: React.FC<MyProps> = props => {
                 horizontal
                 justify="flex-start"
                 align="center">
-                <Text style={{color: '#333', fontSize: dip(24)}}>孙宇鹏</Text>
+                <TextView style={{color: '#333', fontSize: dip(24)}}>孙宇鹏</TextView>
                 <View style={styles.line} />
                 <Text style={{color: '#666', fontSize: dip(20)}}>29岁</Text>
                 <View style={styles.line} />
-                <Text style={{color: '#666', fontSize: dip(20)}}>
+                <TextView style={{color: '#666', fontSize: dip(20)}}>
                   前端开发工程
-                </Text>
+                </TextView>
               </Flex>
               <Flex horizontal style={{gap: dip(12)}}>
                 {tags.map((it, i) => (
@@ -63,10 +63,10 @@ const Basic: React.FC<MyProps> = props => {
                     <Flex horizontal>
                       <Image
                         source={it.value}
-                        style={{height: dip(18), width: dip(18)}}
+                        style={{height: dip(16), width: dip(16)}}
                       />
                       <View style={{width: dip(5)}} />
-                      <Text style={{color: '#333', fontSize: dip(16)}}>
+                      <Text style={{color: '#333', fontSize: dip(14)}}>
                         {it.label}
                       </Text>
                     </Flex>
@@ -78,7 +78,7 @@ const Basic: React.FC<MyProps> = props => {
             </Flex>
           </Flex>
         </Flex>
-        <View style={{height: dip(10)}} />
+        <View style={{height: dip(12)}} />
         <Flex horizontal justify="space-between">
           {connects.map((it, i) => (
             <Flex key={i} horizontal>
@@ -87,7 +87,7 @@ const Basic: React.FC<MyProps> = props => {
                 style={{height: dip(16), width: dip(16), tintColor: '#333'}}
               />
               <Text style={{color: '#999', fontSize: dip(12)}}> | </Text>
-              <Text style={{color: '#333', fontSize: dip(14)}}>{it.label}</Text>
+              <Text style={{color: '#333', fontSize: dip(16)}}>{it.label}</Text>
             </Flex>
           ))}
         </Flex>

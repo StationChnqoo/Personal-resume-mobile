@@ -1,8 +1,7 @@
-import {Card, Flex} from '@src/components';
+import {Card, Flex, TextView} from '@src/components';
 import {companies} from '@src/constants/c';
-import {TCompany} from '@src/constants/t';
 import {dip} from '@src/constants/u';
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 interface MyProps {}
 
@@ -12,25 +11,32 @@ const Company: React.FC<MyProps> = props => {
       {companies.map((it, i) => (
         <View key={i}>
           <Flex horizontal justify="space-between">
-            <Text style={{fontSize: dip(16), color: '#333'}}>{it.parent}</Text>
+            <TextView style={{fontSize: dip(18), color: '#000'}}>
+              {it.parent}
+            </TextView>
             <Text style={{fontSize: dip(14), color: '#333'}}>{it.date}</Text>
           </Flex>
           {it.children.length > 0 ? (
-            <Flex horizontal justify="flex-start" style={{marginTop: dip(12)}}>
+            <Flex horizontal justify="flex-start" style={{marginTop: dip(10)}}>
               <Text style={{fontSize: dip(14), color: '#666'}}>
                 {it.children.join('、')}
               </Text>
             </Flex>
           ) : null}
-          <View style={{height: dip(5)}} />
-          <View>
+          <View style={{height: dip(10)}} />
+          <View style={styles.published}>
             {it.published.map((it, i) => (
               <View key={i} style={{marginVertical: dip(4)}}>
                 <Flex justify="space-between" horizontal>
                   <Text style={{color: '#333', fontSize: dip(14)}}>
                     {it.label}
                   </Text>
-                  <Text style={{color: '#666', fontSize: dip(14)}}>
+                  <Text
+                    style={{
+                      color: '#666',
+                      fontSize: dip(14),
+                      textDecorationLine: it?.alive ? 'none' : 'line-through',
+                    }}>
                     {(it?.markets || []).length > 0
                       ? it.markets.join('、')
                       : it?.link
@@ -41,14 +47,15 @@ const Company: React.FC<MyProps> = props => {
               </View>
             ))}
           </View>
+          <View style={{height: dip(5)}} />
           <View>
             {it.projects.map((p, j) => (
               <View key={j} style={{marginVertical: dip(4)}}>
                 <Text
                   style={{
                     fontSize: dip(14),
-                    color: '#666',
-                    lineHeight: dip(18),
+                    color: '#000',
+                    lineHeight: dip(20),
                   }}>
                   {j + 1}. {p}
                 </Text>
@@ -62,4 +69,13 @@ const Company: React.FC<MyProps> = props => {
   );
 };
 
+const styles = StyleSheet.create({
+  published: {
+    borderWidth: 1,
+    borderRadius: dip(8),
+    paddingVertical: dip(5),
+    paddingHorizontal: dip(12),
+    borderColor: '#999',
+  },
+});
 export default Company;

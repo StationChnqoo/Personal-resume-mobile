@@ -37,7 +37,7 @@ const Experience: React.FC<MyProps> = props => {
         {datas.map((it, i) => (
           <View key={i} style={{marginVertical: dip(4)}}>
             <Text
-              style={{color: '#333', fontSize: dip(14), lineHeight: dip(20)}}>
+              style={{color: '#000', fontSize: dip(14), lineHeight: dip(20)}}>
               {it.label}
             </Text>
           </View>

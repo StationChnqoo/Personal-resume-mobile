@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   view: {
     borderRadius: dip(12),
     backgroundColor: '#fff',
-    paddingHorizontal: dip(12),
+    paddingHorizontal: dip(16),
     paddingVertical: dip(12),
   },
 });

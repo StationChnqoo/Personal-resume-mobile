@@ -8,6 +8,7 @@ export const TAppPublisedSchema = z.object({
   label: z.string().default(''),
   link: z.string().default(''),
   markets: z.array(z.string()).default([]),
+  alive: z.boolean().optional().default(false),
 });
 
 export const TCompanySchema = z.object({

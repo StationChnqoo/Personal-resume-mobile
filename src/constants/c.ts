@@ -14,6 +14,10 @@ enum images {
   i = require('@src/assets/i.jpg'),
 }
 
+enum fonts {
+  harmonyOS = 'HarmonyOS',
+}
+
 const companies = [
   {
     parent: '光汇石油集团',
@@ -23,8 +27,57 @@ const companies = [
       '深圳云油供油有限公司',
       '深圳快鹭科技有限公司',
     ],
-    published: [],
-    projects: [],
+    published: [
+      {
+        label: '海运在线App',
+        markets: ['iOS: AppStore', 'android: Google Play'],
+      },
+      {
+        label: '云供油小程序',
+        markets: ['微信小程序'],
+      },
+      {
+        label: '云供油SaaS运营平台',
+      },
+      {
+        label: '云供油商城',
+      },
+      {
+        label: '光汇集团官网',
+        link: 'https://www.bwoil.com/',
+        alive: true,
+      },
+      {
+        label: '快鹭云SaaS运营平台',
+        link: 'https://kl.quickegret.com/operation/#/',
+        alive: true,
+      },
+      {
+        label: '快鹭云SaaS管理后台',
+        link: 'https://kl.quickegret.com/console/#/',
+        alive: true,
+      },
+      {
+        label: '快鹭云客户端 - PC&移动端',
+        link: 'https://kl.quickegret.com/#/',
+        alive: true,
+      },
+      {
+        label: '快鹭云个人认证中心 - PC&移动端',
+        link: 'https://auth.quickegret.com/#/login',
+        alive: true,
+      },
+    ],
+    projects: [
+      '维护现有React Native项目，重构几十处选船、选港口的弹窗为公共组件；',
+      '处理PayPal的升级，应对Google Pay强制升级Android 12的审核以及对应PalPay SDK升级的兼容；',
+      '使用Uni-app对云供油的微信小程序进行现有问题的维护和新需求的开发，处理了uni-app的自带MapView在Android手机，尤其是鸿蒙手机上的体验，对于地图的视图范围、视图层级、Marker的懒加载有一定优化经验；',
+      '使用element-ui对云供油SaaS运营平台和商城进行维护和新需求的开发；',
+      '使用naive-ui对快鹭云的核心产品：SaaS运行平台、SaaS管理平台、SaaS客户端、个人认证中心，进行维护和新需求的开发；',
+      '使用WebSocket代替轮训，对后端长时间的异步操作进行消息通知，针对性对WebSocket连接、超时重试、异常关闭等场景进行优化；',
+      '对移动端和PC端相同的业务逻辑进行Hooks封装，做到业务逻辑和视图的解耦；',
+      '对多状态、多权限的组件进行高度封装。',
+    ],
   },
   {
     parent: '云南白药集团上海健康产品有限公司',
@@ -46,7 +99,7 @@ const companies = [
     projects: [
       '参加2023年Google IO/Connect开发者大会Flutter专场；',
       '对React Native和Flutter进行技术调研和选型，基本框架使用Flutter，需要热更新和需要WebView交互的页面使用React Native；',
-      '开源React Native瀑布流组件 react-native-staggered-list，API无缝对接FlatList，支持列数自定义，自动计算高度，下拉刷新，上拉加载更多等；',
+      '开源React Native瀑布流组件react-native-staggered-list，API无缝对接FlatList，支持列数自定义，自动计算高度，下拉刷新，上拉加载更多等；',
       '高度还原设计稿，进行android和iOS的屏幕的适配；',
       '搭建公共组件库，进行常用组件的封装；',
       '用Redux和Provider进行整个App数据流状态的管理以及必要时的数据缓存的工作；',
@@ -58,7 +111,7 @@ const companies = [
       '编写animation，满足指定场景下的交互体验；',
       '处理iOS上架过程中，隐私政策、用户协议、隐私权限话术、权限申请的时机等被拒的问题；',
       '处理android上架过程中，权限申请的时机，各个手机厂商的消息通知的消息通道的对接进行消息推送；',
-      '用CodePush进行App 指定功能页面的热更新；',
+      '用CodePush进行App指定功能页面的热更新；',
       '对新人的代码进行Code review，进行前端技术分享和新人培训；',
       '优化用户体验，对App进行性监测，以及收集线上用户行为埋点，进行用户行为的分析。',
     ],
@@ -75,7 +128,7 @@ const companies = [
       '独立负责React Native的开发，整合工厂硬件设备的SDK，封装视图；',
       '进行前端技术分享和技术培训；',
       '设备面板的搭建，按需加载JSBundle（App管理不同设备的JSBundle，定向进行设备更新）',
-      '使用ts + hooks对现有的js + class对Web项目进行升级，处理升级到React 16产生的问题；',
+      '使用ts + hooks对现有的js + class对Web项目进行重构。',
     ],
   },
   {
@@ -94,4 +147,4 @@ const companies = [
   },
 ] as TCompany[];
 
-export {images, companies};
+export {images, companies, fonts};
