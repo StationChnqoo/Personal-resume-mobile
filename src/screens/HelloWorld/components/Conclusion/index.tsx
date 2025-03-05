@@ -15,7 +15,7 @@ const Conclusion: React.FC<MyProps> = props => {
     '👘 熟读明清史和近现代史，修身齐家治国平天下，洞察细节、对事物的发展具有预判，格局能打开 ...',
   ];
   return (
-    <Card>
+    <Card style={{paddingVertical: dip(8)}}>
       <View>
         {datas.map((it, i) => (
           <Text key={i} style={styles.text}>

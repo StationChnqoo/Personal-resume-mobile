@@ -1,13 +1,14 @@
 import {dip} from '@src/constants/u';
 import React, {ReactElement} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 
 interface MyProps {
+  style?: StyleProp<ViewStyle>;
   children: React.ReactNode | ReactElement;
 }
 
 const Card: React.FC<MyProps> = props => {
-  return <View style={styles.view}>{props.children}</View>;
+  return <View style={[styles.view, props?.style]}>{props.children}</View>;
 };
 
 const styles = StyleSheet.create({

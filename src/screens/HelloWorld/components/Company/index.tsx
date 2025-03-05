@@ -1,11 +1,14 @@
 import {Card, Flex, TextView} from '@src/components';
 import {companies} from '@src/constants/c';
+import {useCaches} from '@src/constants/store';
 import {dip} from '@src/constants/u';
+import {memo} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 interface MyProps {}
 
-const Company: React.FC<MyProps> = props => {
+const Company: React.FC<MyProps> = memo(props => {
+  const {colors, theme} = useCaches();
   return (
     <Card>
       {companies.map((it, i) => (
@@ -14,7 +17,7 @@ const Company: React.FC<MyProps> = props => {
             <TextView style={{fontSize: dip(18), color: '#000'}}>
               {it.parent}
             </TextView>
-            <Text style={{fontSize: dip(14), color: '#333'}}>{it.date}</Text>
+            <Text style={{fontSize: dip(16), color: '#333'}}>{it.date}</Text>
           </Flex>
           {it.children.length > 0 ? (
             <Flex horizontal justify="flex-start" style={{marginTop: dip(10)}}>
@@ -28,14 +31,22 @@ const Company: React.FC<MyProps> = props => {
             {it.published.map((it, i) => (
               <View key={i} style={{marginVertical: dip(4)}}>
                 <Flex justify="space-between" horizontal>
-                  <Text style={{color: '#333', fontSize: dip(14)}}>
+                  <Text
+                    style={{
+                      color: theme,
+                      fontSize: dip(14),
+                    }}>
                     {it.label}
                   </Text>
                   <Text
                     style={{
-                      color: '#666',
+                      color: it?.link ? '#097cfa' : '#666',
                       fontSize: dip(14),
-                      textDecorationLine: it?.alive ? 'none' : 'line-through',
+                      textDecorationLine: it?.alive
+                        ? it?.link
+                          ? 'underline'
+                          : 'none'
+                        : 'line-through',
                     }}>
                     {(it?.markets || []).length > 0
                       ? it.markets.join('、')
@@ -67,7 +78,7 @@ const Company: React.FC<MyProps> = props => {
       ))}
     </Card>
   );
-};
+});
 
 const styles = StyleSheet.create({
   published: {

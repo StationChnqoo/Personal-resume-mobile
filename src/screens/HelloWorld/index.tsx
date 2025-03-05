@@ -1,21 +1,15 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {ScrollView, StyleSheet, View} from 'react-native';
 
 import {RouteProp} from '@react-navigation/native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {dip} from '@src/constants/u';
 import {RootStacksParams, RootStacksProp} from '..';
 import Basic from './components/Basic';
-import {dip} from '@src/constants/u';
-import Experience from './components/Experience';
 import Company from './components/Company';
 import Conclusion from './components/Conclusion';
+import Experience from './components/Experience';
+import {useCaches} from '@src/constants/store';
+import {colors} from '@src/constants/c';
 
 interface MyProps {
   navigation?: RootStacksProp;
@@ -23,6 +17,25 @@ interface MyProps {
 }
 
 const HelloWorld: React.FC<MyProps> = props => {
+  const [s, setS] = useState(0);
+  const {setColors} = useCaches();
+
+  useEffect(() => {
+    let timer = setInterval(() => {
+      setS(t => t + 1);
+    }, 1000);
+    return function () {
+      clearInterval(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (s % 10 == 0) {
+      setColors([...colors].sort(() => Math.random() - 0.5));
+    }
+    return function () {};
+  }, [s]);
+
   return (
     <View style={{flex: 1}}>
       <View style={{height: dip(48)}} />
@@ -36,6 +49,7 @@ const HelloWorld: React.FC<MyProps> = props => {
             </View>
           ),
         )}
+        <View style={{height: dip(108)}} />
       </ScrollView>
       <View style={{height: dip(48)}} />
     </View>

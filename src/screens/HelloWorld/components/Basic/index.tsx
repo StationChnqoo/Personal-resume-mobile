@@ -1,6 +1,8 @@
-import {Card, Flex, TextView} from '@src/components';
-import {images} from '@src/constants/c';
+import {Card, Flex} from '@src/components';
+import {colors, images} from '@src/constants/c';
+import {useCaches} from '@src/constants/store';
 import {dip} from '@src/constants/u';
+import {memo} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 
 interface MyProps {}
@@ -33,40 +35,45 @@ const tags = [
   {label: 'Uni-app', value: images.uni},
 ];
 
-const Basic: React.FC<MyProps> = props => {
+const Basic: React.FC<MyProps> = memo(props => {
+  const {colors, theme} = useCaches();
   return (
     <Card>
       <View>
         <Flex horizontal>
-          <Image
-            source={images.i}
-            style={{height: dip(72), width: dip(72)}}
-          />
+          <Image source={images.i} style={{height: dip(72), width: dip(72)}} />
           <Flex style={{flex: 1, height: dip(72)}} justify="space-between">
-            <Flex justify="space-around">
-              <Flex
-                style={{flex: 1}}
-                horizontal
-                justify="flex-start"
-                align="center">
-                <TextView style={{color: '#333', fontSize: dip(24)}}>孙宇鹏</TextView>
-                <View style={styles.line} />
-                <Text style={{color: '#666', fontSize: dip(20)}}>29岁</Text>
-                <View style={styles.line} />
-                <TextView style={{color: '#666', fontSize: dip(20)}}>
-                  前端开发工程
-                </TextView>
-              </Flex>
+            <Flex justify="space-between">
+              <View style={{flex: 1}}>
+                <Flex horizontal justify="flex-start" align="flex-end">
+                  <Text style={{color: '#000', fontSize: dip(24)}}>孙宇鹏</Text>
+                  <View style={{width: dip(12)}} />
+                  <Text style={{color: '#333', fontSize: dip(18)}}>
+                    前端开发工程
+                  </Text>
+                  <View style={{width: dip(12)}} />
+                  <Text style={{color: '#666', fontSize: dip(18)}}>
+                    1995.10
+                  </Text>
+                </Flex>
+                <View style={{height: dip(2)}} />
+                <View style={{height: 1, backgroundColor: '#ccc'}} />
+              </View>
+              <View style={{height: dip(10)}} />
               <Flex horizontal style={{gap: dip(12)}}>
                 {tags.map((it, i) => (
                   <View key={i}>
                     <Flex horizontal>
                       <Image
                         source={it.value}
-                        style={{height: dip(18), width: dip(18)}}
+                        style={{height: dip(20), width: dip(20)}}
                       />
                       <View style={{width: dip(5)}} />
-                      <Text style={{color: '#333', fontSize: dip(14)}}>
+                      <Text
+                        style={{
+                          color: theme,
+                          fontSize: dip(14),
+                        }}>
                         {it.label}
                       </Text>
                     </Flex>
@@ -84,9 +91,12 @@ const Basic: React.FC<MyProps> = props => {
             <Flex key={i} horizontal>
               <Image
                 source={it.value}
-                style={{height: dip(16), width: dip(16), tintColor: '#333'}}
+                style={{
+                  height: dip(18),
+                  width: dip(18),
+                }}
               />
-              <Text style={{color: '#999', fontSize: dip(12)}}> | </Text>
+              <Text style={{color: '#999', fontSize: dip(16)}}> | </Text>
               <Text style={{color: '#333', fontSize: dip(16)}}>{it.label}</Text>
             </Flex>
           ))}
@@ -94,7 +104,7 @@ const Basic: React.FC<MyProps> = props => {
       </View>
     </Card>
   );
-};
+});
 
 const styles = StyleSheet.create({
   line: {
