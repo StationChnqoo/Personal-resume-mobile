@@ -16,7 +16,7 @@ const emojis = [
   //   require('@src/assets/emoji/douyin-3.png'),
   require('@src/assets/emoji/boss-weixiao.png'),
   require('@src/assets/emoji/boss-jianxiao.png'),
-  require('@src/assets/emoji/boss-jingya.png'),
+  require('@src/assets/emoji/boss-chongya.png'),
 ];
 
 const datas = [
@@ -27,14 +27,13 @@ const datas = [
   },
   {
     label: '熟练封装复杂业务场景和状态的 Hooks，对业务逻辑和视图解耦；',
-    value: 1,
+    value: 2,
   },
   {
     label:
       '优化各种应用场景的 Query 查询，loading、缓存、重试、防抖、分页、无限加载等；',
     value: 1,
   },
-  {label: '熟练封装复杂组件视图，例如瀑布流和轮播等；', value: 3},
   {
     label:
       '对WebView嵌入图表ChartJS、eCharts，视频播放Plyr、DPlayer等有一定经验；',
@@ -42,7 +41,7 @@ const datas = [
   },
   {
     label: '熟悉消息推送、CodePush 代码热更新、Android 8、12~15的权限适配等；',
-    value: 2,
+    value: 1,
   },
   {label: '熟悉 Native Modules 的原生模块的编写；', value: 2},
   {
@@ -51,14 +50,14 @@ const datas = [
   },
   {
     label: '熟悉 Android 和 iOS 的上架流程，处理上架过程中遇见的若干问题；',
-    value: 1,
-  },
-
-  {
-    label:
-      '熟悉 React Native 重要发行版本的升级和组件库的升级，以及对应调试方式的更换等。',
     value: 2,
   },
+  {
+    label:
+      '熟悉 React Native 重要发行版本的升级和组件库的升级，以及对应调试方式的更换等；',
+    value: 1,
+  },
+  {label: '熟练封装复杂组件视图，例如瀑布流和轮播等。', value: 3},
 ];
 
 const Experience: React.FC<MyProps> = props => {
