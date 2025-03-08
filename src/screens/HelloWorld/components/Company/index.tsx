@@ -42,11 +42,7 @@ const Company: React.FC<MyProps> = memo(props => {
                     style={{
                       color: it?.link ? '#097cfa' : '#666',
                       fontSize: dip(14),
-                      textDecorationLine: it?.alive
-                        ? it?.link
-                          ? 'underline'
-                          : 'none'
-                        : 'line-through',
+                      textDecorationLine: it?.link ? 'underline' : 'none',
                     }}>
                     {(it?.markets || []).length > 0
                       ? it.markets.join('、')

@@ -5,15 +5,18 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 interface MyProps {}
 
 const emojis = [
-  require('@src/assets/emoji/huya-1.png'),
-  require('@src/assets/emoji/huya-2.png'),
-  require('@src/assets/emoji/huya-3.png'),
+  // require('@src/assets/emoji/huya-1.png'),
+  // require('@src/assets/emoji/huya-2.png'),
+  // require('@src/assets/emoji/huya-3.png'),
   //   require('@src/assets/emoji/wechat-1.png'),
   //   require('@src/assets/emoji/wechat-2.png'),
   //   require('@src/assets/emoji/wechat-3.png'),
   //   require('@src/assets/emoji/douyin-1.png'),
   //   require('@src/assets/emoji/douyin-2.png'),
   //   require('@src/assets/emoji/douyin-3.png'),
+  require('@src/assets/emoji/boss-weixiao.png'),
+  require('@src/assets/emoji/boss-jianxiao.png'),
+  require('@src/assets/emoji/boss-jingya.png'),
 ];
 
 const datas = [
